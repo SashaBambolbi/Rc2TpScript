@@ -7,21 +7,17 @@ local points = {}
 local binds = {}
 local H = game:GetService("HttpService")
 
--- ============================================
--- СОХРАНЕНИЕ В ФАЙЛ (Arceus X)
--- ============================================
 local function getConfigPath()
     local username = player.Name
-    local path = "/sdcard/Arceus X/TeleportPoints/" .. username .. ".json"
+    local path = "/storage/emulated/0/Arceus X/Workspace/" .. username .. ".json"
     return path
 end
 
 local function load()
     local path = getConfigPath()
     local success, data = pcall(function()
-        return game:GetService("HttpService"):JSONDecode(readfile(path))
+        return H:JSONDecode(readfile(path))
     end)
-    
     if success and data then
         points = data.points or {}
         binds = data.binds or {}
@@ -43,9 +39,6 @@ local function save()
     end)
 end
 
--- ============================================
--- ОСТАЛЬНОЙ КОД (без изменений)
--- ============================================
 local function addPoint(n)
     local p = root.Position
     points[n] = {
@@ -352,7 +345,7 @@ function update()
         local info = Instance.new("TextLabel")
         info.Size = UDim2.new(1, 0, 0, 40)
         info.Position = UDim2.new(0, 0, 0, y)
-        info.Text = "📁 Путь: /sdcard/Arceus X/TeleportPoints/"
+        info.Text = "📁 /storage/emulated/0/Arceus X/Workspace/"
         info.TextColor3 = Color3.fromRGB(150, 150, 170)
         info.BackgroundTransparency = 1
         info.Font = Enum.Font.Gotham
@@ -408,7 +401,7 @@ function update()
         pathBtn.MouseButton1Click:Connect(function()
             info.Text = "📁 " .. getConfigPath()
             task.wait(2)
-            info.Text = "📁 /sdcard/Arceus X/TeleportPoints/"
+            info.Text = "📁 /storage/emulated/0/Arceus X/Workspace/"
         end)
         y = y + 43
     end
