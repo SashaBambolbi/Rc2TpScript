@@ -18,6 +18,9 @@ local points = {
     ["Одити 2"] = {X = -5699.9, Y = -178.7, Z = 5385.7},
     ["Блюмун"] = {X = -6398.3, Y = 256.9, Z = 5130},
     ["Замок"] = {X = -3839, Y = -1509.8, Z = 4055.9},
+    ["Кристалы Моря 1"] = {X = -7553, Y = -636.6, Z = 1278.8},
+    ["Кристалы Моря 2"] = {X = -7357.2, Y = -638.8, Z = 994.5},
+    ["Кристалы"] = {X = -6611.5, Y = -593.1, Z = 859},
 }
 
 local keyNames = {
@@ -84,6 +87,7 @@ mc.Parent = main
 
 local t = Instance.new("TextLabel")
 t.Size = UDim2.new(1, 0, 0, 45)
+t.Position = UDim2.new(0, 0, 0, 0)
 t.Text = "📍 ТЕЛЕПОРТЫ"
 t.TextColor3 = Color3.fromRGB(255, 255, 255)
 t.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
@@ -105,6 +109,7 @@ close.BackgroundTransparency = 1
 close.Font = Enum.Font.GothamBold
 close.TextSize = 22
 close.Parent = main
+
 close.MouseButton1Click:Connect(function()
     main.Visible = false
     isOpen = false
@@ -133,7 +138,7 @@ p1c.Parent = p1
 local p2 = Instance.new("TextButton")
 p2.Size = UDim2.new(0.5, -5, 1, 0)
 p2.Position = UDim2.new(0.5, 5, 0, 0)
-p2.Text = "💾 СОХРАНЁННЫЕ"
+p2.Text = "💾 МОИ"
 p2.TextColor3 = Color3.fromRGB(200, 200, 200)
 p2.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
 p2.BorderSizePixel = 0
@@ -172,6 +177,9 @@ function update()
             Color3.fromRGB(60, 180, 200),
             Color3.fromRGB(200, 200, 60),
             Color3.fromRGB(100, 200, 150),
+            Color3.fromRGB(100, 150, 255),
+            Color3.fromRGB(255, 150, 100),
+            Color3.fromRGB(150, 255, 100),
         }
         
         local i = 0
@@ -248,7 +256,7 @@ function update()
         local saveBtn = Instance.new("TextButton")
         saveBtn.Size = UDim2.new(1, -10, 0, 40)
         saveBtn.Position = UDim2.new(0, 5, 0, y)
-        saveBtn.Text = "💾 СОХРАНИТЬ ТЕКУЩУЮ ПОЗИЦИЮ"
+        saveBtn.Text = "💾 СОХРАНИТЬ ПОЗИЦИЮ"
         saveBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
         saveBtn.BackgroundColor3 = Color3.fromRGB(60, 200, 60)
         saveBtn.BorderSizePixel = 0
@@ -270,7 +278,7 @@ function update()
         local inputBox = Instance.new("TextBox")
         inputBox.Size = UDim2.new(0.65, -5, 0, 32)
         inputBox.Position = UDim2.new(0, 5, 0, y)
-        inputBox.PlaceholderText = "Название точки..."
+        inputBox.PlaceholderText = "Название..."
         inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
         inputBox.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
         inputBox.BorderSizePixel = 1
