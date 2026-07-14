@@ -544,4 +544,104 @@ end)
 
 p3.MouseButton1Click:Connect(function()
     page = 3
- 
+    p3.BackgroundColor3 = Color3.fromRGB(50, 50, 80)
+    p3.TextColor3 = Color3.fromRGB(255, 255, 255)
+    p1.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p1.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p2.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p2.TextColor3 = Color3.fromRGB(200, 200, 200)
+    update()
+end)
+
+local open = Instance.new("ImageButton")
+open.Size = UDim2.new(0, 45, 0, 45)
+open.Position = UDim2.new(0, 10, 0, 100)
+open.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
+open.BackgroundTransparency = 0.2
+open.BorderSizePixel = 1
+open.BorderColor3 = Color3.fromRGB(80, 80, 100)
+open.Parent = gui
+
+local oc = Instance.new("UICorner")
+oc.CornerRadius = UDim.new(0, 10)
+oc.Parent = open
+
+local ic = Instance.new("TextLabel")
+ic.Size = UDim2.new(1, 0, 1, 0)
+ic.Text = "📍"
+ic.TextColor3 = Color3.fromRGB(255, 255, 255)
+ic.BackgroundTransparency = 1
+ic.Font = Enum.Font.GothamBold
+ic.TextSize = 22
+ic.Parent = open
+
+local phone = Instance.new("ImageButton")
+phone.Size = UDim2.new(0, 55, 0, 55)
+phone.Position = UDim2.new(0.5, -27.5, 1, -70)
+phone.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
+phone.BackgroundTransparency = 0.3
+phone.BorderSizePixel = 2
+phone.BorderColor3 = Color3.fromRGB(80, 80, 120)
+phone.Parent = gui
+phone.ZIndex = 10
+
+local phc = Instance.new("UICorner")
+phc.CornerRadius = UDim.new(0, 14)
+phc.Parent = phone
+
+local phi = Instance.new("TextLabel")
+phi.Size = UDim2.new(1, 0, 1, 0)
+phi.Text = "📍"
+phi.TextColor3 = Color3.fromRGB(255, 255, 255)
+phi.BackgroundTransparency = 1
+phi.Font = Enum.Font.GothamBold
+phi.TextSize = 28
+phi.Parent = phone
+
+phone.MouseButton1Click:Connect(function()
+    isOpen = not isOpen
+    main.Visible = isOpen
+    if isOpen then update() end
+end)
+
+local drag = false
+local ds = nil
+local sp = nil
+
+open.InputBegan:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+        drag = true
+        ds = i.Position
+        sp = open.Position
+    end
+end)
+
+open.InputChanged:Connect(function(i)
+    if drag and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
+        local d = i.Position - ds
+        open.Position = UDim2.new(sp.X.Scale, sp.X.Offset + d.X, sp.Y.Scale, sp.Y.Offset + d.Y)
+    end
+end)
+
+open.InputEnded:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+        drag = false
+    end
+end)
+
+open.MouseButton1Click:Connect(function()
+    isOpen = not isOpen
+    main.Visible = isOpen
+    if isOpen then update() end
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(i, g)
+    if g then return end
+    if i.KeyCode == Enum.KeyCode.P then
+        isOpen = not isOpen
+        main.Visible = isOpen
+        if isOpen then update() end
+    end
+end)
+
+update()
