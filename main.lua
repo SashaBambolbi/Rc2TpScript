@@ -7,16 +7,19 @@ local binds = {}
 local savedPoints = {}
 
 local points = {
+    ["База 1"] = {X = 1565.7, Y = 30, Z = -525},
     ["База 2"] = {X = 963.3, Y = 63.8, Z = -198.6},
     ["База 3"] = {X = 1978.9, Y = 3.1, Z = -955.6},
     ["База 8"] = {X = 53.9, Y = 63.8, Z = -469.8},
-    ["Продажа"] = {X = 925.7, Y = 29.8, Z = -701.8},
     ["Вис Логик"] = {X = -5136.2, Y = 59.6, Z = -2813.8},
+    ["Продажа"] = {X = 925.7, Y = 29.8, Z = -701.8},
     ["Пещера Клауд"] = {X = -7216.6, Y = 755, Z = -2959.9},
     ["Костер Клауд"] = {X = -7241.5, Y = 761, Z = -3245.4},
     ["Кристалы Моря 1"] = {X = -7553, Y = -636.6, Z = 1278.8},
     ["Кристалы Моря 2"] = {X = -7357.2, Y = -638.8, Z = 994.5},
     ["Кристалы"] = {X = -6611.5, Y = -593.1, Z = 859},
+    ["Блюмун"] = {X = -6398.3, Y = 256.9, Z = 5130},
+    ["Замок"] = {X = -3839, Y = -1509.8, Z = 4055.9},
 }
 
 local meteors = {
@@ -165,7 +168,7 @@ p2c.Parent = p2
 local p3 = Instance.new("TextButton")
 p3.Size = UDim2.new(0.33, -5, 1, 0)
 p3.Position = UDim2.new(0.67, 5, 0, 0)
-p3.Text = "💾 МОИ"
+p3.Text = "⭐ ВСЁ"
 p3.TextColor3 = Color3.fromRGB(200, 200, 200)
 p3.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
 p3.BorderSizePixel = 0
@@ -204,6 +207,8 @@ function update()
             Color3.fromRGB(60, 180, 200),
             Color3.fromRGB(100, 150, 255),
             Color3.fromRGB(150, 255, 100),
+            Color3.fromRGB(200, 200, 60),
+            Color3.fromRGB(200, 100, 150),
         }
         
         local i = 0
@@ -356,6 +361,17 @@ function update()
             y = y + 45
         end
     else
+        local coordLabel = Instance.new("TextLabel")
+        coordLabel.Size = UDim2.new(1, -10, 0, 30)
+        coordLabel.Position = UDim2.new(0, 5, 0, y)
+        coordLabel.Text = "📍 " .. string.format("%.1f, %.1f, %.1f", root.Position.X, root.Position.Y, root.Position.Z)
+        coordLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+        coordLabel.BackgroundTransparency = 1
+        coordLabel.Font = Enum.Font.GothamBold
+        coordLabel.TextSize = 13
+        coordLabel.Parent = cont
+        y = y + 35
+        
         local saveBtn = Instance.new("TextButton")
         saveBtn.Size = UDim2.new(1, -10, 0, 40)
         saveBtn.Position = UDim2.new(0, 5, 0, y)
