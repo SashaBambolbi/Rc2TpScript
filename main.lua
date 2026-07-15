@@ -116,8 +116,8 @@ gui.Parent = player:WaitForChild("PlayerGui")
 gui.ResetOnSpawn = false
 
 local main = Instance.new("Frame")
-main.Size = UDim2.new(0, 320, 0, 500)
-main.Position = UDim2.new(0.5, -160, 0.5, -250)
+main.Size = UDim2.new(0, 450, 0, 500)
+main.Position = UDim2.new(0.5, -225, 0.5, -250)
 main.BackgroundColor3 = Color3.fromRGB(20, 20, 35)
 main.BorderSizePixel = 2
 main.BorderColor3 = Color3.fromRGB(80, 80, 120)
@@ -128,20 +128,20 @@ local mc = Instance.new("UICorner")
 mc.CornerRadius = UDim.new(0, 12)
 mc.Parent = main
 
-local t = Instance.new("TextLabel")
-t.Size = UDim2.new(1, 0, 0, 45)
-t.Position = UDim2.new(0, 0, 0, 0)
-t.Text = "📍 ТЕЛЕПОРТЫ"
-t.TextColor3 = Color3.fromRGB(255, 255, 255)
-t.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
-t.BackgroundTransparency = 0.5
-t.Font = Enum.Font.GothamBold
-t.TextSize = 20
-t.Parent = main
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 45)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.Text = "📍 ТЕЛЕПОРТЫ"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+title.BackgroundTransparency = 0.5
+title.Font = Enum.Font.GothamBold
+title.TextSize = 20
+title.Parent = main
 
 local tc = Instance.new("UICorner")
 tc.CornerRadius = UDim.new(0, 12)
-tc.Parent = t
+tc.Parent = title
 
 local close = Instance.new("TextButton")
 close.Size = UDim2.new(0, 35, 0, 35)
@@ -165,7 +165,7 @@ pb.BackgroundTransparency = 1
 pb.Parent = main
 
 local p1 = Instance.new("TextButton")
-p1.Size = UDim2.new(0.25, -5, 1, 0)
+p1.Size = UDim2.new(0.2, -5, 1, 0)
 p1.Text = "🐟 РЫБА"
 p1.TextColor3 = Color3.fromRGB(255, 255, 255)
 p1.BackgroundColor3 = Color3.fromRGB(50, 50, 80)
@@ -179,8 +179,8 @@ p1c.CornerRadius = UDim.new(0, 6)
 p1c.Parent = p1
 
 local p2 = Instance.new("TextButton")
-p2.Size = UDim2.new(0.25, -5, 1, 0)
-p2.Position = UDim2.new(0.25, 0, 0, 0)
+p2.Size = UDim2.new(0.2, -5, 1, 0)
+p2.Position = UDim2.new(0.2, 0, 0, 0)
 p2.Text = "🪵 ПЛОТЫ"
 p2.TextColor3 = Color3.fromRGB(200, 200, 200)
 p2.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
@@ -194,8 +194,8 @@ p2c.CornerRadius = UDim.new(0, 6)
 p2c.Parent = p2
 
 local p3 = Instance.new("TextButton")
-p3.Size = UDim2.new(0.25, -5, 1, 0)
-p3.Position = UDim2.new(0.5, 0, 0, 0)
+p3.Size = UDim2.new(0.2, -5, 1, 0)
+p3.Position = UDim2.new(0.4, 0, 0, 0)
 p3.Text = "☄️ МЕТЕОРЫ"
 p3.TextColor3 = Color3.fromRGB(200, 200, 200)
 p3.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
@@ -209,8 +209,8 @@ p3c.CornerRadius = UDim.new(0, 6)
 p3c.Parent = p3
 
 local p4 = Instance.new("TextButton")
-p4.Size = UDim2.new(0.25, -5, 1, 0)
-p4.Position = UDim2.new(0.75, 0, 0, 0)
+p4.Size = UDim2.new(0.2, -5, 1, 0)
+p4.Position = UDim2.new(0.6, 0, 0, 0)
 p4.Text = "⭐ ВСЁ"
 p4.TextColor3 = Color3.fromRGB(200, 200, 200)
 p4.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
@@ -222,6 +222,21 @@ p4.Parent = pb
 local p4c = Instance.new("UICorner")
 p4c.CornerRadius = UDim.new(0, 6)
 p4c.Parent = p4
+
+local p5 = Instance.new("TextButton")
+p5.Size = UDim2.new(0.2, -5, 1, 0)
+p5.Position = UDim2.new(0.8, 0, 0, 0)
+p5.Text = "💾 МОИ"
+p5.TextColor3 = Color3.fromRGB(200, 200, 200)
+p5.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+p5.BorderSizePixel = 0
+p5.Font = Enum.Font.GothamBold
+p5.TextSize = 11
+p5.Parent = pb
+
+local p5c = Instance.new("UICorner")
+p5c.CornerRadius = UDim.new(0, 6)
+p5c.Parent = p5
 
 local cont = Instance.new("ScrollingFrame")
 cont.Size = UDim2.new(1, -10, 1, -135)
@@ -476,6 +491,86 @@ function update()
             y = y + 45
         end
     elseif page == 4 then
+        local colors4 = {
+            Color3.fromRGB(200, 100, 60),
+            Color3.fromRGB(60, 180, 200),
+            Color3.fromRGB(200, 60, 100),
+            Color3.fromRGB(60, 200, 150),
+            Color3.fromRGB(150, 100, 255),
+            Color3.fromRGB(255, 150, 100),
+        }
+        
+        local i = 0
+        for n, d in pairs(others) do
+            i = i + 1
+            local frame = Instance.new("Frame")
+            frame.Size = UDim2.new(1, -10, 0, 40)
+            frame.Position = UDim2.new(0, 5, 0, y)
+            frame.BackgroundTransparency = 1
+            frame.Parent = cont
+            
+            local btn = Instance.new("TextButton")
+            btn.Size = UDim2.new(0.7, -5, 1, 0)
+            btn.Position = UDim2.new(0, 0, 0, 0)
+            btn.Text = "⭐ " .. n
+            btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            btn.BackgroundColor3 = colors4[(i-1) % #colors4 + 1]
+            btn.BackgroundTransparency = 0.2
+            btn.BorderSizePixel = 1
+            btn.BorderColor3 = Color3.fromRGB(60, 60, 80)
+            btn.Font = Enum.Font.GothamBold
+            btn.TextSize = 13
+            btn.Parent = frame
+            local btnc = Instance.new("UICorner")
+            btnc.CornerRadius = UDim.new(0, 6)
+            btnc.Parent = btn
+            btn.MouseButton1Click:Connect(function()
+                tpOther(n)
+            end)
+            
+            local bindBtn = Instance.new("TextButton")
+            bindBtn.Size = UDim2.new(0.25, -5, 1, 0)
+            bindBtn.Position = UDim2.new(0.73, 0, 0, 0)
+            local currentKey = binds["other_" .. n]
+            bindBtn.Text = currentKey and keyNames[currentKey] or "🔑"
+            bindBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            bindBtn.BackgroundColor3 = currentKey and Color3.fromRGB(60, 180, 60) or Color3.fromRGB(40, 40, 60)
+            bindBtn.BorderSizePixel = 1
+            bindBtn.BorderColor3 = Color3.fromRGB(60, 60, 80)
+            bindBtn.Font = Enum.Font.GothamBold
+            bindBtn.TextSize = 13
+            bindBtn.Parent = frame
+            local bindc = Instance.new("UICorner")
+            bindc.CornerRadius = UDim.new(0, 6)
+            bindc.Parent = bindBtn
+            
+            bindBtn.MouseButton1Click:Connect(function()
+                bindBtn.Text = "..."
+                bindBtn.BackgroundColor3 = Color3.fromRGB(200, 200, 60)
+                local conn
+                conn = game:GetService("UserInputService").InputBegan:Connect(function(i, g)
+                    if g then return end
+                    local k = i.KeyCode
+                    if k and k ~= Enum.KeyCode.Unknown then
+                        for n2, k2 in pairs(binds) do
+                            if k2 == k then binds[n2] = nil end
+                        end
+                        binds["other_" .. n] = k
+                        conn:Disconnect()
+                        update()
+                    end
+                end)
+                task.delay(5, function()
+                    if conn then
+                        conn:Disconnect()
+                        update()
+                    end
+                end)
+            end)
+            
+            y = y + 45
+        end
+    else
         local coordLabel = Instance.new("TextLabel")
         coordLabel.Size = UDim2.new(1, -10, 0, 30)
         coordLabel.Position = UDim2.new(0, 5, 0, y)
@@ -549,7 +644,7 @@ function update()
         
         y = y + 40
         
-        local colors4 = {
+        local colors5 = {
             Color3.fromRGB(200, 100, 60),
             Color3.fromRGB(60, 180, 200),
             Color3.fromRGB(200, 60, 100),
@@ -570,7 +665,7 @@ function update()
             btn.Position = UDim2.new(0, 0, 0, 0)
             btn.Text = "⭐ " .. n
             btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-            btn.BackgroundColor3 = colors4[(i-1) % #colors4 + 1]
+            btn.BackgroundColor3 = colors5[(i-1) % #colors5 + 1]
             btn.BackgroundTransparency = 0.2
             btn.BorderSizePixel = 1
             btn.BorderColor3 = Color3.fromRGB(60, 60, 80)
@@ -661,6 +756,8 @@ p1.MouseButton1Click:Connect(function()
     p3.TextColor3 = Color3.fromRGB(200, 200, 200)
     p4.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
     p4.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p5.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p5.TextColor3 = Color3.fromRGB(200, 200, 200)
     update()
 end)
 
@@ -674,6 +771,8 @@ p2.MouseButton1Click:Connect(function()
     p3.TextColor3 = Color3.fromRGB(200, 200, 200)
     p4.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
     p4.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p5.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p5.TextColor3 = Color3.fromRGB(200, 200, 200)
     update()
 end)
 
@@ -687,6 +786,8 @@ p3.MouseButton1Click:Connect(function()
     p2.TextColor3 = Color3.fromRGB(200, 200, 200)
     p4.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
     p4.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p5.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p5.TextColor3 = Color3.fromRGB(200, 200, 200)
     update()
 end)
 
@@ -700,6 +801,23 @@ p4.MouseButton1Click:Connect(function()
     p2.TextColor3 = Color3.fromRGB(200, 200, 200)
     p3.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
     p3.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p5.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p5.TextColor3 = Color3.fromRGB(200, 200, 200)
+    update()
+end)
+
+p5.MouseButton1Click:Connect(function()
+    page = 5
+    p5.BackgroundColor3 = Color3.fromRGB(50, 50, 80)
+    p5.TextColor3 = Color3.fromRGB(255, 255, 255)
+    p1.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p1.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p2.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p2.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p3.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p3.TextColor3 = Color3.fromRGB(200, 200, 200)
+    p4.BackgroundColor3 = Color3.fromRGB(30, 30, 50)
+    p4.TextColor3 = Color3.fromRGB(200, 200, 200)
     update()
 end)
 
